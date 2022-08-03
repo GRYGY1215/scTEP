@@ -1,7 +1,8 @@
 # scTEP
 devtools::install_github('GRYGY1215/scTEP')
-'''
+```
 data('genesets')
+```
 data('goolam')
 
 data = preprocessing(goolam)
