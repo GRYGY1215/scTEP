@@ -1,2 +1,2 @@
 # scTEP
-devtools::install_github('duct317/scDHA')
+devtools::install_github('GRYGY1215/scTEP')
