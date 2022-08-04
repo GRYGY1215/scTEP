@@ -1,6 +1,6 @@
 
 clustering <- function(data) {
-  cl <- parallel::makeCluster(16, outfile = "/dev/null")
+  cl <- parallel::makeCluster(6, outfile = "/dev/null")
   doParallel::registerDoParallel(cl)
   parallel::clusterEvalQ(cl, {
     library(tidyverse)
