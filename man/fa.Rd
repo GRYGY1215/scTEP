@@ -1,22 +1,30 @@
-\name{clustering}
-\alias{clustering}
+\name{fa}
+\alias{fa}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 %%  ~~function to do ... ~~
-Using scDHA to conduct clustering with k from 5 to 10
+Learn latent representation for intersection between dataset and pathways.
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-The function conduct robust clustering using scDHA with k, number of cluster, set from 5 to 10.
+Load pathways acorrding to the orgnism of dataset, intersect the gene expression matrix with pathway by gene symbols, apply factor analysis for each intersection.
 }
 \usage{
-clustering(data)
+fa(data, genesets, data_org = "hsa")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{
-%%     ~~Describe \code{x} here~~
+%%     ~~Describe \code{data} here~~
 The data obtained using preprocessing function, a large list with exprression matrix, label, start cell type, all cell types.
+}
+  \item{genesets}{
+%%     ~~Describe \code{genesets} here~~
+List of pathways, consist of gene symbols.
+}
+  \item{data_org}{
+%%     ~~Describe \code{data_org} here~~
+The orgnism of the dataset. Human sapiens or Mus musculus.
 }
 }
 \details{
@@ -28,7 +36,7 @@ The data obtained using preprocessing function, a large list with exprression ma
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-List with 6 clustering results with k, number of cluster, set from 5 to 10.
+A matrix confists of latent representation of intersection between gene expression and pathways.
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -49,15 +57,12 @@ List with 6 clustering results with k, number of cluster, set from 5 to 10.
 library(dplyr)
 library(foreach)
 library(scDHA)
-library(scTEP)
 data('genesets')
 data('goolam')
 
 data = preprocessing(goolam)
 data_fa = fa(data, genesets, data_org = 'mmu')
-allCluster = clustering(data)
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+

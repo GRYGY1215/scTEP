@@ -31,11 +31,11 @@ The output of scTEP
 }
   \item{fig_type}{
 %%     ~~Describe \code{x} here~~
-The type of figure
+The type of figure: dev_pseudotime, landscape_gt, landscape_scTEP, pseudotime_scTEP,
 }
   \item{dimension_method}{
 %%     ~~Describe \code{x} here~~
-The method of dimension reduction
+The method of dimension reduction,
 }
 
 }

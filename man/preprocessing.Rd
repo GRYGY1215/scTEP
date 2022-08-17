@@ -1,19 +1,24 @@
-\docType{data}
-\name{goolam}
-\alias{goolam}
+\name{preprocessing}
+\alias{preprocessing}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 %%  ~~function to do ... ~~
-A example dataset
+Preprocessing the dataset.
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-Goolam dataset, consist of 124 cells.
+Conduct preprocessing, including remove all zero columns and scale gene expression smaller than 100 by log transformation with 2 as base.
 }
 \usage{
-data(goolam)
+preprocessing(data)
 }
 %- maybe also 'usage' for other objects documented here.
+\arguments{
+  \item{data}{
+%%     ~~Describe \code{data} here~~
+A large SingleCellExperiment object contains the gene expression file, cell type, label.
+}
+}
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
@@ -23,7 +28,7 @@ data(goolam)
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-Goolam as a SingleCellExperiment object.
+A list contains the gene expression file, start cell type, cell type, label.
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -41,7 +46,13 @@ Goolam as a SingleCellExperiment object.
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
+library(dplyr)
+library(foreach)
+library(scDHA)
+data('genesets')
+data('goolam')
 
+data = preprocessing(goolam)
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ dataset }% use one of  RShowDoc("KEYWORDS")
+

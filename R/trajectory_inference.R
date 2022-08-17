@@ -202,7 +202,7 @@ trajectoryinference<- function(data, data_org, fa, allCluster, ncores = 10L, see
     igraph::mst() %>% sort_igraph_object(data_clus_cent[, 16], as.character(1))
 
   # assign weight according to distM
-  E(sorted_graph$g)$weight = sorted_graph$g %>% get.edgelist() %>% apply(1, function(x) distM[as.numeric(x)[1], as.numeric(x)[2]])
+  E(sorted_graph$g)$weight = sorted_graph$g %>% igraph::get.edgelist() %>% apply(1, function(x) distM[as.numeric(x)[1], as.numeric(x)[2]])
 
   # Calculate the length of edge according to the euclidean distance.
   # mst %>% igraph::as_data_frame()
@@ -227,6 +227,7 @@ trajectoryinference<- function(data, data_org, fa, allCluster, ncores = 10L, see
 
   out = list(
     pseudotime = pseudotime,
+    scDHA_res = scDHA_res,
     cluster = cl,
     data_clus_cent = data_clus_cent,
     milestone_network = milestone_network,
