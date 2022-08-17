@@ -1,7 +1,10 @@
 # scTEP
+Download the scTEP package
 ```
 devtools::install_github('GRYGY1215/scTEP')
 ```
+
+An example of scTEP
 ```
 data('genesets')
 
