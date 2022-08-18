@@ -108,7 +108,7 @@ sort_igraph_object = function(g, dist_vector, start_point){
 
 #Load data
 preprocessing <- function(data){
-  expr <- as.matrix(Matrix::Matrix(t(SummarizedExperiment::assay(data)), sparse = TRUE))
+  expr <- as.matrix(Matrix::Matrix(BiocGenerics::t(SummarizedExperiment::assay(data)), sparse = TRUE))
   expr <- expr[, colSums(expr) > 0]
   colnames(expr) <- toupper(colnames(expr))
   if (max(expr) > 100) expr <- log2(expr + 1)
